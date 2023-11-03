@@ -292,6 +292,7 @@ function addProduct() {
         .then(() => {
             $('#addProductModal').modal('hide');
             getProducts()
+            window.location.reload()
         })
         .catch((err) => {
             console.log(err)
