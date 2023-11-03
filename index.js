@@ -39,11 +39,19 @@ async function getProducts() {
 
 }
 function tooManyRequests() {
+    let time = 20;
     let btn = document.querySelector('#tooManyRequestsBtn')
     btn.click()
+    let count = document.querySelector('#countdown')
+    count.innerHTML = time
+    for(let i=1;i<=time;i++) {
+        setTimeout(() => {
+            count.innerHTML = count.innerHTML -1
+        },1000*i)
+    }
     setTimeout(() => {
         window.location.reload()
-    }, 20000);
+    }, time*1000);
 }
 
 function updateProducts() {
