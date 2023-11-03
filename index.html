@@ -57,20 +57,23 @@
                     <div class="modal-body">
                       <form>
                         <div class="form-group">
-                          <label for="name">Product name</label>
+                          <label for="name">Product name*</label>
                           <input type="text" class="form-control" id="name" placeholder="Enter product name">
+                          <label style="display: none;" id="must-name" class="text-danger" for="name">Name must be given</label>
                         </div>
                         <div class="form-group">
-                          <label for="description">Product description</label>
+                          <label for="description">Product description*</label>
                           <input type="text" class="form-control" id="description" placeholder="Enter product description">
+                          <label style="display: none;" id="must-description" class="text-danger" for="description">Description must be given</label>
                         </div>
                         <div class="form-group">
-                          <label for="brand">Brand</label>
+                          <label for="brand">Brand*</label>
                           <input type="text" class="form-control" id="brand" placeholder="Enter product brand">
+                          <label style="display: none;" id="must-brand" class="text-danger" for="brand">Brand must be given</label>
                         </div>
                         <div>
                           <div class="form-group">
-                            <label for="image-url">Image Url</label>
+                            <label for="image-url">Image Url*</label>
                             <input type="text" class="form-control" id="image-url" placeholder="Enter product image url">
                           </div>
                           <div class="form-group form-check">
@@ -80,17 +83,19 @@
                           <div class="form-group">
                             <label for="image-file">Image File</label>
                             <input disabled type="file" class="form-control" id="image-file" placeholder="Enter product image file">
+                            <label style="display: none;" id="must-image" class="text-danger" for="image-file">Image Url or image file must be given</label>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="price">Price</label>
+                          <label for="price">Price*</label>
                           <input type="number" class="form-control" id="price" placeholder="Enter product price">
+                          <label style="display: none;" id="must-price" class="text-danger" for="price">Price must be given</label>
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button onclick="emptyCart()" type="button" class="btn btn-success" data-bs-dismiss="modal">Add product</button>
+                      <button id="addNewProduct" onclick="addProduct()" type="button" class="btn btn-success">Add product</button>
                     </div>
                   </div>
                 </div>

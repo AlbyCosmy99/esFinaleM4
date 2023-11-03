@@ -94,13 +94,6 @@ let products = [
 
 window.onload = function() {
     getProducts();
-    //addProduct('primo prodotto', 'prodotto bello','prodotto', 'https://www.w3schools.com/colors/img_colormap.gif',100);
-    //deleteProduct("65443ce7d155b800141a27c2")
-    // let products = await getProducts()
-    // products.forEach(element => {
-    //     deleteProduct(element._id)
-    // });
-    // console.log(await getProducts())
 }
 
 async function getProducts() {
@@ -216,31 +209,95 @@ function hideEmptyMsg() {
     msgCard.style.display = 'none';
 }
 
-function addProduct(name, description, brand, imageUrl, price) {
-    let obj = {
-        'name': name,
-        'description': description,
-        'brand': brand,
-        'imageUrl': imageUrl,
-        'price': price
-    }
+function addProduct() {
+    let name = document.querySelector('.form-group #name').value
+    let description = document.querySelector('.form-group #description').value
+    let brand = document.querySelector('.form-group #brand').value
+    let imageUrlInput = document.querySelector('.form-group #image-url');
+    let image = null;
 
-    fetch('https://striveschool-api.herokuapp.com/api/product', {
-        method: 'POST',
-        body: JSON.stringify(obj),
-        headers: {
-            'Content-Type': "application/json",
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
+    if(!imageUrlInput.disabled) {
+        image = document.querySelector('.form-group #image-url').value
+    }
+    else {
+        image = document.querySelector('.form-group #image-file').value
+        let imageArr = image.split(`\\`)
+        image = `assets/${imageArr[imageArr.length-1]}`
+    }
+    
+    let price = document.querySelector('.form-group #price').value
+
+    let mustName = document.querySelector('#must-name')
+    let mustDescription = document.querySelector('#must-description')
+    let mustBrand = document.querySelector('#must-brand')
+    let mustImage = document.querySelector('#must-image')
+    let mustPrice = document.querySelector('#must-price')
+
+    if(!name || !description || !brand || !image || !price) { 
+
+        if(!name || name.length === 0) {
+            mustName.style.display = 'block'
         }
-    })
-    .then(res => res.json())
-    .then(() => {
-        getProducts()
-    })
-    .catch((err) => {
-        console.log(err)
-        tooManyRequests()
-    })
+        else {      
+            mustName.style.display = 'none'
+        }
+   
+        if(!description || description.length === 0) {
+            mustDescription.style.display = 'block'
+        }
+        else {      
+            mustDescription.style.display = 'none'
+        }
+        
+        if(!brand || brand.length === 0) {
+            mustBrand.style.display = 'block'
+        }
+        else {      
+            mustBrand.style.display = 'none'
+        }
+        
+        if(!image || image.length === 0) {
+            mustImage.style.display = 'block'
+        }
+        else {      
+            mustImage.style.display = 'none'
+        }
+        
+        if(!price || price.length === 0) {
+            mustPrice.style.display = 'block'
+        }
+        else {      
+            mustPrice.style.display = 'none'
+        }
+    }
+    else {
+        // document.querySelector('#addNewProduct').setAttribute('data-bs-dismiss','modal')
+        let obj = {
+            'name': name,
+            'description': description,
+            'brand': brand,
+            'imageUrl': image,
+            'price': price
+        }
+    
+        fetch('https://striveschool-api.herokuapp.com/api/product', {
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
+            }
+        })
+        .then(res => res.json())
+        .then(() => {
+            $('#addProductModal').modal('hide');
+            getProducts()
+        })
+        .catch((err) => {
+            console.log(err)
+            tooManyRequests()
+        })
+    }   
 }
 
 async function addTestProducts() {
@@ -253,7 +310,7 @@ async function addTestProducts() {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
             }
             })
-            .catch(() => {
+            .catch((err) => {
                 tooManyRequests()
             })
     })
