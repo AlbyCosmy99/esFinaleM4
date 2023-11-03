@@ -6,6 +6,90 @@ let products = [
         'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
         'price': 99.0
     },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
+    {
+        'name': 'New Tiffany Albero di Natale',
+        'description': 'Albero di natale',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
+        'price': 99.0
+    },
 ]
 
 window.onload = function() {
@@ -61,7 +145,7 @@ function updateProducts() {
     if(arr) {
         mappedProducts = arr.map(elem => {
             return `
-            <div class="card" style="text-align: center;background-color: #faf13e;">
+            <div class="card" style="text-align: center;background-color: #faf13e;margin-bottom:1rem;margin-top:0">
                 <div class="card-body product">
                     <div class="product-main-info"> 
                     <img id="product-image" src="${elem.imageUrl}"/>
