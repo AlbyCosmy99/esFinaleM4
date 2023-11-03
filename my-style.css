@@ -1,0 +1,105 @@
+body {
+    background-color: antiquewhite;
+}
+#eccomerceIcon {
+    width: 3rem;
+    height: 3rem;
+}
+nav {
+    position: sticky;
+    top: 0;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.card {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Roboto Mono', monospace; 
+    font-weight: 700;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5rem;
+}
+
+.product-main-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+#product-image {
+    width: 4rem;
+    height: 100%;
+}
+.product-title-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.product-description, .product-price, .modify-delete-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#products {
+    margin-top: 1rem;
+}
+.empty-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* arrow */
+.arrow {
+    position: absolute;
+    top: 35%;
+    left: 49.7%;
+    transform: translate(-50%, -50%);
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.arrow span {
+    display: block;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-bottom: 5px solid green;
+    border-right: 5px solid green;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 3s infinite;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
