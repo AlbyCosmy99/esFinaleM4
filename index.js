@@ -32,7 +32,8 @@ async function getProducts() {
     .then(() => {
         updateProducts();
     })
-    .catch(() => {
+    .catch((err) => {
+        console.log(err)
         tooManyRequests()
     });
 
@@ -121,8 +122,6 @@ function hideEmptyMsg() {
     msg.style.height = '100%';
     let msgCard = document.querySelector('#products .card');
     msgCard.style.display = 'none';
-    let arrow = document.querySelector('.arrow')
-    arrow.style.display = 'none'
 }
 
 function addProduct(name, description, brand, imageUrl, price) {
@@ -146,7 +145,8 @@ function addProduct(name, description, brand, imageUrl, price) {
     .then(() => {
         getProducts()
     })
-    .catch(() => {
+    .catch((err) => {
+        console.log(err)
         tooManyRequests()
     })
 }
@@ -182,7 +182,8 @@ function deleteProduct(id) {
     .then(data => {
         getProducts()
     })
-    .catch(() => {
+    .catch((err) => {
+        console.log(err)
         tooManyRequests()
     })
 }
@@ -198,7 +199,8 @@ let arr = JSON.parse(localStorage.getItem('products'))
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
         }
         })
-        .catch(() => {
+        .catch((err) => {
+            console.log(err)
             tooManyRequests()
         })
     })
