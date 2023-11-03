@@ -122,4 +122,7 @@ nav {
     .arrow {
         top: 30%;
     }
+    .product-title-brand {
+        font-size: x-small;
+    }
 }
