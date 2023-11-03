@@ -111,3 +111,12 @@ nav {
         transform: rotate(45deg) translate(20px, 20px);
     }
 }
+.form-group {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+    h3 {
+        font-size: calc(1.3rem + -2.4vw);
+    }
+}
