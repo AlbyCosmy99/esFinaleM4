@@ -63,12 +63,8 @@ nav {
 
 /* arrow */
 .arrow {
-    position: absolute;
-    top: 34%;
-    left: 49.7%;
     transform: translate(-50%, -50%);
     transform: rotate(180deg);
-    cursor: pointer;
 }
 
 .arrow span {
@@ -113,6 +109,13 @@ nav {
 }
 .form-group {
     margin-bottom: 1rem;
+}
+
+.empty-cart-location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 500px) {

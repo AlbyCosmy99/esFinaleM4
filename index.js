@@ -94,15 +94,22 @@ function showEmptyMsg() {
     let msg = document.querySelector('#products')
     msg.className = 'empty-cart';
     msg.style.height = `${screen.height/2}px`;
-    let arrow = document.querySelector('.arrow')
-    arrow.style.display = 'block'
 
     msg.innerHTML = `
         <div class="card" style="text-align: center;">
             <div class="card-body">
-            <b style="margin: 0;">Currently the cart is empty. Add some products!</b>
-            <br>
-            <button onclick="addTestProducts()" style="margin-top: 1rem;" type="button" class="btn btn-warning">Press here to add some products only for test</button>
+                <div class="empty-cart-location">
+                    <div class="arrow-location" style="margin-bottom:2rem;">
+                        <div class="arrow">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <b style="margin: 0;">Currently the cart is empty. Add some products!</b>
+                    <br>
+                    <button onclick="addTestProducts()" style="margin-top: 1rem;" type="button" class="btn btn-warning">Press here to add some products only for test</button>
+                </div>
             </div>
         </div> 
     `
