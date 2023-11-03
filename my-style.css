@@ -119,4 +119,7 @@ nav {
     h3 {
         font-size: calc(1.3rem + -2.4vw);
     }
+    .arrow {
+        top: 30%;
+    }
 }
