@@ -148,5 +148,8 @@ h3 {
         height: 20px;
         margin: 0 !important;
     }
+    #delete-pencil {
+        margin-left: 0.3rem !important;
+    }
 }
 
