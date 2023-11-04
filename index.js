@@ -70,8 +70,8 @@ function updateProducts() {
             return `
             <div class="card" style="text-align: center;background-color: #faf13e;margin-bottom:1rem;margin-top:0">
                 <div class="card-body product">
-                    <div class="product-main-info"> 
-                    <img id="product-image" src="${elem.imageUrl}"/>
+                    <div class="product-main-info">
+                    <img onclick="window.location.href = '/product/product.html?id=${elem._id}'" style="cursor:pointer" id="product-image" src="${elem.imageUrl}"/>
                     <div class="product-title-brand">
                         <h3 style="margin: 0;">${elem.name}</h3>
                         <p>${elem.brand}</p>

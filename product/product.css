@@ -1,0 +1,9 @@
+body {
+    background-color: antiquewhite;
+}
+.my-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+}
