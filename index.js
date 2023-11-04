@@ -11,7 +11,6 @@ let products = [
 
 window.onload = function() {
     sessionStorage.setItem('navbar-toggled', 'false');
-    console.log(sessionStorage.getItem('navbar-toggled'))
     if(screen.width <= '987') {
         document.querySelector('#total').style.display = 'none'
         document.querySelector('#navbar-btn-toggle').addEventListener('click', () => {
