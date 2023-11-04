@@ -18,7 +18,7 @@ let products = [
         'description': 'Multiple colorful flowers',
         'brand': 'Flora srl',
         'imageUrl': 'https://sophycrownflowers.ie/cdn/shop/products/033_1863x.jpg?v=1652130802',
-        'price': 8.99
+        'price': 11.99
     },
     {
         'name': 'Violet flower',
