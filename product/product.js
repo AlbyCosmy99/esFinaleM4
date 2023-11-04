@@ -6,7 +6,7 @@ window.onload = function() {
     let cardCont = document.querySelector('.my-card-container')
     cardCont.innerHTML = `
     <div class="card" style="width: 18rem;">
-        <img style="wdith:6rem" src="${elem.imageUrl}" class="card-img-top" alt="${elem.description}">
+        <img style="wdith:100%" src="${elem.imageUrl}" class="card-img-top" alt="${elem.description}">
         <div class="card-body">
             <h5 class="card-title">${elem.name}</h5>
             <p class="card-text">${elem.brand}</p>

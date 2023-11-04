@@ -1,10 +1,31 @@
 let products = [
     {
-        'name': 'New Tiffany Albero di Natale',
-        'description': 'Albero di natale',
+        'name': 'Pink Flower',
+        'description': 'Beautiful pink flower',
         'brand': 'Flora srl',
-        'imageUrl': 'https://m.media-amazon.com/images/I/6137rMqJ6lL._AC_SY879_.jpg',
-        'price': 99.0
+        'imageUrl': 'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_640.jpg',
+        'price': 3.99
+    },
+    {
+        'name': 'Blue flower',
+        'description': 'Amazing blue flower',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://www.southernliving.com/thmb/xFlQn020pc1NJAl4ksr7_o_B5u4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-598083938-1-22dab883ff2a43d8b2751d9f363f2d5d.jpg',
+        'price': 2.00
+    },
+    {
+        'name': 'Multicolor flowers',
+        'description': 'Multiple colorful flowers',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://sophycrownflowers.ie/cdn/shop/products/033_1863x.jpg?v=1652130802',
+        'price': 11.99
+    },
+    {
+        'name': 'Violet flower',
+        'description': 'Rare violet flower',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://hips.hearstapps.com/hmg-prod/images/surprising-flower-meanings-balloon-flowers-1650767465.jpg',
+        'price': 3.49
     },
 
 ]
@@ -70,14 +91,14 @@ function updateProducts() {
             return `
             <div class="card" style="text-align: center;background-color: #faf13e;margin-bottom:1rem;margin-top:0">
                 <div class="card-body product">
-                    <div class="product-main-info">
-                    <img onclick="window.location.href = '/product/product.html?id=${elem._id}'" style="cursor:pointer" id="product-image" src="${elem.imageUrl}"/>
-                    <div class="product-title-brand">
-                        <h3 style="margin: 0;">${elem.name}</h3>
-                        <p>${elem.brand}</p>
+                    <div class="product-main-info" style="flex: 0 0 25%">
+                        <img onclick="window.location.href = '/product/product.html?id=${elem._id}'" style="cursor:pointer" id="product-image" src="${elem.imageUrl}"/>
+                        <div class="product-title-brand">
+                            <h3 style="margin: 0;">${elem.name}</h3>
+                            <p>${elem.brand}</p>
+                        </div>
                     </div>
-                    </div>
-                    <div class="product-description">${elem.description}</div>
+                    <div class="product-description" style="flex: 0 0 25%;">${elem.description}</div>
                     <div class="product-price">$${elem.price}</div>
                     <div class="modify-delete-product">
                     <svg onclick="setUpdateProduct('${elem._id}')" data-bs-toggle="modal" data-bs-target="#updateProductModal" style="margin-right: 0.5rem;cursor:pointer;" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#FC9D03" class="bi bi-pencil-square" viewBox="0 0 16 16">
