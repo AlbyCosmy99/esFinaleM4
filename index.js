@@ -24,9 +24,17 @@ let products = [
         'name': 'Violet flower',
         'description': 'Rare violet flower',
         'brand': 'Flora srl',
-        'imageUrl': 'https://hips.hearstapps.com/hmg-prod/images/surprising-flower-meanings-balloon-flowers-1650767465.jpg',
+        'imageUrl': 'https://mdc.mo.gov/sites/default/files/styles/gallery_main_image/public/2022-03/Common_violet_Viola_sororia_flower_5-2-18.jpg?itok=ayxUrkgA',
         'price': 3.49
     },
+    {
+        'name': 'Yellow flower',
+        'description': 'Ultra rare yellow flower',
+        'brand': 'Flora srl',
+        'imageUrl': 'https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTk3NzA1Nzc2MTkzNTQ2MDM0/planting-a-garden-with-yellow-tropical-flowers.jpg',
+        'price': 19.99
+    },
+    
 
 ]
 
