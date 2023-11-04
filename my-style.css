@@ -119,6 +119,10 @@ body {
     flex-direction: column;
 }
 
+#total {
+    transition: 0.1s linear opacity;
+}
+
 @media screen and (max-width: 500px) {
     h3 {
         font-size: calc(1.3rem + -2.4vw);
@@ -131,6 +135,4 @@ body {
         font-size: x-small;
     }
 }
-
-/* countdown */
 

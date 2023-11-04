@@ -10,6 +10,20 @@ let products = [
 ]
 
 window.onload = function() {
+    sessionStorage.setItem('navbar-toggled', 'false');
+    console.log(sessionStorage.getItem('navbar-toggled'))
+    if(screen.width <= '987') {
+        document.querySelector('#total').style.display = 'none'
+        document.querySelector('#navbar-btn-toggle').addEventListener('click', () => {
+            sessionStorage.setItem('navbar-toggled', sessionStorage.getItem('navbar-toggled') === 'true' ? 'false' : 'true');
+            if(sessionStorage.getItem('navbar-toggled') === 'true') {
+                document.querySelector('#total').setAttribute('style','color: red;opacity:1')
+            }
+            else {
+                document.querySelector('#total').setAttribute('style','color: red;opacity:0')
+            }
+        })
+    }
     getProducts();
 }
 
