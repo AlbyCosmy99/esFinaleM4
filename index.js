@@ -257,6 +257,7 @@ function updateProduct(obj) {
     .then(() => {
         getProducts()
         window.location.reload()
+        sessionStorage.setItem('update-id',-1)
     })
     .catch((err) => {
         console.log(err)
