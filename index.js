@@ -101,13 +101,13 @@ function updateProducts() {
                 <div class="card-body product">
                     <div class="product-main-info" style="flex: 0 0 25%">
                         <img onclick="window.location.href = '/product/product.html?id=${elem._id}'" style="cursor:pointer" id="product-image" src="${elem.imageUrl}"/>
-                        <div class="product-title-brand">
+                        <div class="product-title-brand" onclick="window.location.href = '/product/product.html?id=${elem._id}'" style="cursor:pointer">
                             <h3 style="margin: 0;text-align:start;font-size: small"><b>${elem.name}</b></h3>
                             <p>${elem.brand}</p>
                         </div>
                     </div>
-                    <div class="product-description" style="flex: 0 0 25%;">${elem.description}</div>
-                    <div class="product-price" style=font-size:small"">$${elem.price}</div>
+                    <div class="product-description" style="flex: 0 0 25%;cursor:pointer" onclick="window.location.href = '/product/product.html?id=${elem._id}'">${elem.description}</div>
+                    <div onclick="window.location.href = '/product/product.html?id=${elem._id}'" class="product-price" style=font-size:small;cursor:pointer">$${elem.price}</div>
                     <div class="modify-delete-product">
                     <svg id="update-pencil" onclick="setUpdateProduct('${elem._id}')" data-bs-toggle="modal" data-bs-target="#updateProductModal" style="margin-right: 0.5rem;cursor:pointer;" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#FC9D03" class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
