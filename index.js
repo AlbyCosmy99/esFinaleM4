@@ -208,7 +208,6 @@ function addProduct() {
         })
         .then(res => res.json())
         .then(() => {
-            $('#addProductModal').modal('hide');
             getProducts()
             window.location.reload()
         })
