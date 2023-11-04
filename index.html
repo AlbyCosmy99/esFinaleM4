@@ -48,7 +48,7 @@
             <div class="d-flex justify-content-end" style="flex: 0 0 53.5%;">
               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">ADD PRODUCT</button>
               <!-- add product modal -->
-              <div style="background-color: rgba(99, 255, 111, 0.8);" class="modal fade add-product-modal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div data-bs-backdrop="static" data-bs-keyboard="false" style="background-color: rgba(99, 255, 111, 0.8);" class="modal fade add-product-modal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header justify-content-center">
@@ -100,8 +100,8 @@
                   </div>
                 </div>
               </div>
-                  <!-- modify product modal -->
-    <div style="background-color: rgba(255, 196, 116, 0.8);" class="modal fade update-product-modal" id="updateProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <!-- modify product modal -->
+    <div data-bs-backdrop="static" data-bs-keyboard="false" style="background-color: rgba(255, 196, 116, 0.8);" class="modal fade update-product-modal" id="updateProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header justify-content-center">
@@ -156,7 +156,7 @@
             </div>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">EMPTY CART</button>
             <!-- Empty cart modal -->
-            <div style="background-color: rgba(255, 0, 0, 0.42);" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div data-bs-backdrop="static" data-bs-keyboard="false" style="background-color: rgba(255, 0, 0, 0.42);" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header justify-content-center">
@@ -175,7 +175,7 @@
 
             <!-- too many requests modal -->
             <button id="tooManyRequestsBtn" style="display: none;" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tooManyRequests"></button>
-            <div  data-bs-backdrop="static" data-bs-keyboard="false" style="background-color: rgba(255, 206, 110, 0.8);" class="modal fade" id="tooManyRequests" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div data-bs-backdrop="static" data-bs-keyboard="false" style="background-color: rgba(255, 206, 110, 0.8);" class="modal fade" id="tooManyRequests" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                       <button class="btn btn-warning" type="button" disabled>
