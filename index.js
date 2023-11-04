@@ -174,11 +174,11 @@ function setUpdateOrAdditionProduct(type, modal) {
     
     let price = document.querySelector(`${modal} .form-group #price`).value
 
-    let mustName = document.querySelector('#must-name')
-    let mustDescription = document.querySelector('#must-description')
-    let mustBrand = document.querySelector('#must-brand')
-    let mustImage = document.querySelector('#must-image')
-    let mustPrice = document.querySelector('#must-price')
+    let mustName = document.querySelector(`${modal} #must-name`)
+    let mustDescription = document.querySelector(`${modal} #must-description`)
+    let mustBrand = document.querySelector(`${modal} #must-brand`)
+    let mustImage = document.querySelector(`${modal} #must-image`)
+    let mustPrice = document.querySelector(`${modal} #must-price`)
 
     if(!name || !description || !brand || !image || !price) { 
 
