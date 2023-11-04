@@ -174,6 +174,7 @@ function updateProducts() {
     else {
         showEmptyMsg()
     }
+    document.querySelector('#total').innerHTML = arr.length
 }
 
 function showEmptyMsg() {
