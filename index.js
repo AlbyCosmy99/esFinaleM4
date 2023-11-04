@@ -95,6 +95,7 @@ function updateProducts() {
 }
 
 function setUpdateProduct(id) {
+    sessionStorage.setItem('update-id',id)
     let arr = JSON.parse(localStorage.getItem('products'))
     let elem = arr.filter(el => el._id === id)
 
@@ -139,23 +140,26 @@ function hideEmptyMsg() {
     msgCard.style.display = 'none';
 }
 
-function addProduct() {
-    let name = document.querySelector('.add-product-modal .form-group #name').value
-    let description = document.querySelector('.add-product-modal .form-group #description').value
-    let brand = document.querySelector('.add-product-modal .form-group #brand').value
-    let imageUrlInput = document.querySelector('.add-product-modal .form-group #image-url');
+// type 0 -> add
+// type 1 -> update
+
+function setUpdateOrAdditionProduct(type, modal) {
+    let name = document.querySelector(`${modal} .form-group #name`).value
+    let description = document.querySelector(`${modal} .form-group #description`).value
+    let brand = document.querySelector(`${modal} .form-group #brand`).value
+    let imageUrlInput = document.querySelector(`${modal} .form-group #image-url`);
     let image = null;
 
     if(!imageUrlInput.disabled) {
-        image = document.querySelector('.add-product-modal .form-group #image-url').value
+        image = document.querySelector(`${modal} .form-group #image-url`).value
     }
     else {
-        image = document.querySelector('.add-product-modal .form-group #image-file').value
+        image = document.querySelector(`${modal} .form-group #image-file`).value
         let imageArr = image.split(`\\`)
         image = `assets/${imageArr[imageArr.length-1]}`
     }
     
-    let price = document.querySelector('.add-product-modal .form-group #price').value
+    let price = document.querySelector(`${modal} .form-group #price`).value
 
     let mustName = document.querySelector('#must-name')
     let mustDescription = document.querySelector('#must-description')
@@ -209,25 +213,55 @@ function addProduct() {
             'imageUrl': image,
             'price': price
         }
-    
-        fetch('https://striveschool-api.herokuapp.com/api/product', {
-            method: 'POST',
-            body: JSON.stringify(obj),
-            headers: {
-                'Content-Type': "application/json",
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
-            }
-        })
-        .then(res => res.json())
-        .then(() => {
-            getProducts()
-            window.location.reload()
-        })
-        .catch((err) => {
-            console.log(err)
-            tooManyRequests()
-        })
+
+        if(type === 0) {
+            addProduct(obj)
+        }
+        else if(type === 1) {
+            updateProduct(obj)
+        }
     }   
+}
+
+function addProduct(obj) {
+    fetch(`https://striveschool-api.herokuapp.com/api/product`, {
+        method: 'POST',
+        body: JSON.stringify(obj),
+        headers: {
+            'Content-Type': "application/json",
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
+        }
+    })
+    .then(res => res.json())
+    .then(() => {
+        getProducts()
+        window.location.reload()
+    })
+    .catch((err) => {
+        console.log(err)
+        tooManyRequests()
+    })
+}
+
+function updateProduct(obj) {
+    let id = sessionStorage.getItem('update-id')
+    fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(obj),
+        headers: {
+            'Content-Type': "application/json",
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
+        }
+    })
+    .then(res => res.json())
+    .then(() => {
+        getProducts()
+        window.location.reload()
+    })
+    .catch((err) => {
+        console.log(err)
+        tooManyRequests()
+    })
 }
 
 async function addTestProducts() {

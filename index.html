@@ -95,7 +95,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button id="addNewProduct" onclick="addProduct()" type="button" class="btn btn-success">Add product</button>
+                      <button id="addNewProduct" onclick="setUpdateOrAdditionProduct(0, '.add-product-modal')" type="button" class="btn btn-success">Add product</button>
                     </div>
                   </div>
                 </div>
@@ -148,7 +148,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button id="addNewProduct" onclick="addProduct()" type="button" class="btn btn-warning">Update product</button>
+            <button id="addNewProduct" onclick="setUpdateOrAdditionProduct(1,'.update-product-modal')" type="button" class="btn btn-warning">Update product</button>
           </div>
         </div>
       </div>
