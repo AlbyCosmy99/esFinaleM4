@@ -123,9 +123,18 @@ body {
     transition: 0.1s linear opacity;
 }
 
+
+.product-title-brand {
+    font-size: small;
+}
+
+h3 {
+    font-size: calc(1.3rem + -0.2vw);
+}
+
 @media screen and (max-width: 500px) {
-    h3 {
-        font-size: calc(1.3rem + -2.4vw);
+    .product-description, .product-price {
+        font-size: smaller;
     }
     .arrow {
         top: 46%;
@@ -133,6 +142,13 @@ body {
     }
     .product-title-brand {
         font-size: x-small;
+    }
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+    #update-pencil, #delete-pencil {
+        margin: 0;
     }
 }
 
