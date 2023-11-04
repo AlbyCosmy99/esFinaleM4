@@ -48,7 +48,7 @@
             <div class="d-flex justify-content-end" style="flex: 0 0 53.5%;">
               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">ADD PRODUCT</button>
               <!-- add product modal -->
-              <div style="background-color: rgba(99, 255, 111, 0.8);" class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div style="background-color: rgba(99, 255, 111, 0.8);" class="modal fade add-product-modal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header justify-content-center">
@@ -77,7 +77,7 @@
                             <input type="text" class="form-control" id="image-url" placeholder="Enter product image url">
                           </div>
                           <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="image-product" onclick="switchImageType()">
+                            <input type="checkbox" class="form-check-input" id="image-product" onclick="switchImageType('.add-product-modal')">
                             <label class="form-check-label" for="image-product" style="user-select: none;;">Check to enter image file instead of url</label>
                           </div>
                           <div class="form-group">
@@ -100,6 +100,59 @@
                   </div>
                 </div>
               </div>
+                  <!-- modify product modal -->
+    <div style="background-color: rgba(255, 196, 116, 0.8);" class="modal fade update-product-modal" id="updateProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <h5 class="modal-title" id="exampleModalLongTitle">Update product</h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Product name*</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter product name">
+                <label style="display: none;" id="must-name" class="text-danger" for="name">Name must be given</label>
+              </div>
+              <div class="form-group">
+                <label for="description">Product description*</label>
+                <input type="text" class="form-control" id="description" placeholder="Enter product description">
+                <label style="display: none;" id="must-description" class="text-danger" for="description">Description must be given</label>
+              </div>
+              <div class="form-group">
+                <label for="brand">Brand*</label>
+                <input type="text" class="form-control" id="brand" placeholder="Enter product brand">
+                <label style="display: none;" id="must-brand" class="text-danger" for="brand">Brand must be given</label>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label for="image-url">Image Url*</label>
+                  <input type="text" class="form-control" id="image-url" placeholder="Enter product image url">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="image-product1" onclick="switchImageType('.update-product-modal')">
+                  <label class="form-check-label" for="image-product1" style="user-select: none;">Check to enter image file instead of url</label>
+                </div>
+                <div class="form-group">
+                  <label for="image-file">Image File (must be present in folder 'assets')</label>
+                  <input disabled type="file" class="form-control" id="image-file" placeholder="Enter product image file">
+                  <label style="display: none;" id="must-image" class="text-danger" for="image-file">Image Url or image file must be given</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="price">Price*</label>
+                <input type="number" class="form-control" id="price" placeholder="Enter product price">
+                <label style="display: none;" id="must-price" class="text-danger" for="price">Price must be given</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="addNewProduct" onclick="addProduct()" type="button" class="btn btn-warning">Update product</button>
+          </div>
+        </div>
+      </div>
+    </div>
             </div>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">EMPTY CART</button>
             <!-- Empty cart modal -->

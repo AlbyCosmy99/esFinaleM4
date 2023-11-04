@@ -67,11 +67,11 @@ function updateProducts() {
                     <div class="product-description">${elem.description}</div>
                     <div class="product-price">$${elem.price}</div>
                     <div class="modify-delete-product">
-                    <svg style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#FC9D03" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <svg onclick="setUpdateProduct('${elem._id}')" data-bs-toggle="modal" data-bs-target="#updateProductModal" style="margin-right: 0.5rem;cursor:pointer;" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#FC9D03" class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                     </svg>
-                    <svg style="margin-left: 0.5rem;" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#f70a0a" class="bi bi-trash" viewBox="0 0 16 16">
+                    <svg onclick="removeProduct('${elem._id}')" style="margin-left: 0.5rem;cursor:pointer;" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#f70a0a" class="bi bi-trash" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
                         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                     </svg>
@@ -92,6 +92,18 @@ function updateProducts() {
         showEmptyMsg()
     }
     document.querySelector('#total').innerHTML = arr.length
+}
+
+function setUpdateProduct(id) {
+    let arr = JSON.parse(localStorage.getItem('products'))
+    let elem = arr.filter(el => el._id === id)
+
+    document.querySelector('.update-product-modal .form-group #name').value  = elem[0].name
+    document.querySelector('.update-product-modal .form-group #description').value = elem[0].description
+    document.querySelector('.update-product-modal .form-group #brand').value = elem[0].brand
+    document.querySelector('.update-product-modal .form-group #image-url').value = elem[0].imageUrl;
+    document.querySelector('.update-product-modal .form-group #price').value = elem[0].price
+    
 }
 
 function showEmptyMsg() {
@@ -128,22 +140,22 @@ function hideEmptyMsg() {
 }
 
 function addProduct() {
-    let name = document.querySelector('.form-group #name').value
-    let description = document.querySelector('.form-group #description').value
-    let brand = document.querySelector('.form-group #brand').value
-    let imageUrlInput = document.querySelector('.form-group #image-url');
+    let name = document.querySelector('.add-product-modal .form-group #name').value
+    let description = document.querySelector('.add-product-modal .form-group #description').value
+    let brand = document.querySelector('.add-product-modal .form-group #brand').value
+    let imageUrlInput = document.querySelector('.add-product-modal .form-group #image-url');
     let image = null;
 
     if(!imageUrlInput.disabled) {
-        image = document.querySelector('.form-group #image-url').value
+        image = document.querySelector('.add-product-modal .form-group #image-url').value
     }
     else {
-        image = document.querySelector('.form-group #image-file').value
+        image = document.querySelector('.add-product-modal .form-group #image-file').value
         let imageArr = image.split(`\\`)
         image = `assets/${imageArr[imageArr.length-1]}`
     }
     
-    let price = document.querySelector('.form-group #price').value
+    let price = document.querySelector('.add-product-modal .form-group #price').value
 
     let mustName = document.querySelector('#must-name')
     let mustDescription = document.querySelector('#must-description')
@@ -238,9 +250,30 @@ async function addTestProducts() {
     getProducts()
 }
 
-function deleteProduct(id) {
+function removeProduct(id) {
     fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
         method: 'DELETE',
+        headers: {
+            'Content-Type': "application/json",
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
+        }
+    })
+    .then(res => res.json())
+    .then(() => {
+        getProducts()
+    })
+    .catch((err) => {
+        console.log(err)
+        tooManyRequests()
+    })
+}
+
+
+function modifyProduct(id) {
+    let obj = {}
+    fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(obj),
         headers: {
             'Content-Type': "application/json",
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ0MzA3MWQxNTViODAwMTQxYTI3YjMiLCJpYXQiOjE2OTg5Njc2NjUsImV4cCI6MTcwMDE3NzI2NX0.rIMqm_xBUXakj2K3p7h4t02u_KoohyZ74srIaW5E0C8' 
@@ -278,10 +311,13 @@ let arr = JSON.parse(localStorage.getItem('products'))
     getProducts()
 }
 
-function switchImageType() {
-    let input = document.querySelector('#image-product')
-    let imageUrl = document.querySelector('#image-url')
-    let imageFile = document.querySelector('#image-file')
+function switchImageType(modal) {
+    let input = document.querySelector(`${modal} #image-product`)
+    if(!input) {
+        input = document.querySelector(`${modal} #image-product1`)
+    }
+    let imageUrl = document.querySelector(`${modal} #image-url`)
+    let imageFile = document.querySelector(`${modal} #image-file`)
 
     if(input.checked) {
         imageUrl.disabled = 'true'
